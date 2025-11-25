@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  hi-bot:
+    build: .
+    container_name: hi-bot
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./base_videos:/app/base_videos
+      - ./fonts:/app/fonts

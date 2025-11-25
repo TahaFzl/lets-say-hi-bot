@@ -164,6 +164,13 @@ This keeps inline responses fast and avoids Telegram timeouts.
 
 ------------------------------------------------------------------------
 
+## 🙏 Special Thanks
+
+Special thanks to [@alifazl3](https://github.com/alifazl3) for inspiration and support.
+
+------------------------------------------------------------------------
+
+
 ## 📝 License
 
 MIT --- Feel free to fork, customize, and build your own fun GIF bot!

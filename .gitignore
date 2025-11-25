@@ -1,4 +1,3 @@
-# --- Python ---
 __pycache__/
 *.pyc
 *.pyo
@@ -6,26 +5,21 @@ __pycache__/
 *.pdb
 *.pkl
 
-# Virtual environments
 venv/
 env/
 .venv/
 .pyenv/
 
-# Pip wheel build folders
 build/
 dist/
 *.egg-info/
 
-# Jupyter / misc
 .ipynb_checkpoints/
 
-# --- Environment & Secrets ---
 .env
 *.env
 token.json
 
-# --- Local Data / Cache ---
 *.db
 *.sqlite
 *.sqlite3
@@ -34,30 +28,24 @@ temp/
 tmp/
 *.log
 
-# --- Videos & GIFs ---
 base_videos/*.mp4
 base_videos/*.mov
 base_videos/*.mkv
 base_videos/*.gif
 
-# But keep default.mp4
 !base_videos/default.mp4
 
-# Generated GIFs in runtime
 *.gif
 
-# --- macOS ---
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# --- IDE / Editor ---
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# --- FFmpeg temporary files ---
 *.tmp
 *.temp
 *.part
