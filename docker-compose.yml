@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   hi-bot:
     build: .
@@ -9,6 +7,21 @@ services:
     env_file:
       - .env
 
+    networks:
+      - hi-bot-net
+
     volumes:
-      - ./base_videos:/app/base_videos
-      - ./fonts:/app/fonts
+      - hibot_base_videos:/app/base_videos
+      - hibot_fonts:/app/fonts
+
+    ports:
+      - "8080:8080"
+
+networks:
+  hi-bot-net:
+    name: hi-bot-net
+    driver: bridge
+
+volumes:
+  hibot_base_videos:
+  hibot_fonts:

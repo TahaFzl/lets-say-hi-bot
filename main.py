@@ -3,6 +3,9 @@ import subprocess
 import asyncio
 import tempfile
 
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
+
 from dotenv import load_dotenv
 from telegram import (
     Update,
@@ -36,6 +39,25 @@ FONT_SIZE = 48
 
 ASK_NAME = 1
 WAIT_SOURCE = 2
+
+class HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/health":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b"OK")
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+    def log_message(self, format, *args):
+        return
+
+
+def start_health_server(port: int = 8080):
+    server = HTTPServer(("0.0.0.0", port), HealthHandler)
+    server.serve_forever()
 
 def ensure_directories():
     os.makedirs(BASE_VIDEOS_DIR, exist_ok=True)
@@ -385,4 +407,5 @@ def main():
 
 
 if __name__ == "__main__":
+    threading.Thread(target=start_health_server, kwargs={"port": 8080}, daemon=True).start()
     main()
